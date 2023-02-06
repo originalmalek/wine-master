@@ -1,6 +1,6 @@
 env/
 .vscode/
 /.replit
-/index.html
+index.html
 /idea
 /.env
