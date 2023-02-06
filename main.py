@@ -18,15 +18,15 @@ def convert_year_text(work_years):
 		return 'лет'
 
 
-def create_product_dict(products_file):
+def get_products(products_file):
 	data_frame = pd.read_excel(io=products_file,
 	                           sheet_name='Лист1',
 	                           names=['category', 'title', 'sort', 'price', 'image', 'offer'],
 	                           keep_default_na=False,
 	                           )
-	products_dict = dict(data_frame.set_index('category').groupby('category'). \
+	products = dict(data_frame.set_index('category').groupby('category'). \
 	                     apply(lambda x: x.to_dict(orient='records')))
-	return products_dict
+	return products
 
 
 def render_page(products_file):
@@ -35,7 +35,7 @@ def render_page(products_file):
 	rendered_page = template.render(
 		year=work_years,
 		year_text=convert_year_text(work_years),
-		products_data=create_product_dict(products_file),
+		products_data=get_products(products_file),
 	)
 
 	with open('index.html', 'w', encoding="utf8") as file:
