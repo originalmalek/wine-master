@@ -29,9 +29,10 @@ def get_products(products_file):
 	return products
 
 
-def render_page(products_file):
+def render_page(products_file, foundation_year):
 	template = env.get_template('template.html')
-	work_years = int((datetime.now() - datetime(year=1920, month=1, day=1)).days / 365)
+	work_years = int((datetime.now().year - foundation_year))
+
 	rendered_page = template.render(
 		year=work_years,
 		year_text=convert_year_text(work_years),
@@ -45,12 +46,12 @@ def render_page(products_file):
 if __name__ == '__main__':
 	load_dotenv()
 	products_file = os.getenv('PRODUCTS_FILE')
-
+	foundation_year = int(os.getenv('FOUNDATION_YEAR'))
 	env = Environment(
 		loader=FileSystemLoader('.'),
 		autoescape=select_autoescape(['html', 'xml'])
 	)
 
-	render_page(products_file)
+	render_page(products_file, foundation_year)
 	server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
 	server.serve_forever()
