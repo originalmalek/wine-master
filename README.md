@@ -10,7 +10,7 @@
 PRODUCTS_FILE=имя_файла_с_товарами.xlsx   
 FOUNDATION_YEAR=год_основания_компании
 ```
-- Заполните файл products.xlsx по образцу
+- Заполните файл с товарами по образцу products.xlsx
 - Залейте картинки товаров в папку /images
 - Установите requirements  
 ```pip3 install -r requirements.txt```
