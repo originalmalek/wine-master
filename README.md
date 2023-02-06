@@ -5,11 +5,13 @@
 ## Запуск
 
 - Скачайте код
-- Установите requirements `pip3 install -r requirements.txt.`
-- Создать файл .env и указать название файла в переменной PRODUCTS_FILE
+- Создайте файл .env и указать название файла в переменной PRODUCTS_FILE
 - Заполните файл products.xlsx по образцу
 - Залейте картинки товаров в папку /images
-- Запустите сайт командой `python3 main.py`
+- Установите requirements  
+```pip3 install -r requirements.txt```
+- Запустите сайт командой  
+```python3 main.py```
 - Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
 ## Цели проекта
