@@ -45,7 +45,7 @@ def render_page(products_file):
 if __name__ == '__main__':
 	load_dotenv()
 	products_file = os.getenv('PRODUCTS_FILE')
-	print(products_file)
+
 	env = Environment(
 		loader=FileSystemLoader('.'),
 		autoescape=select_autoescape(['html', 'xml'])
