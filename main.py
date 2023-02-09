@@ -31,7 +31,7 @@ def get_products(products_file):
 
 def render_page(products_file, foundation_year):
 	template = env.get_template('template.html')
-	work_years = int((datetime.now().year - foundation_year))
+	work_years = datetime.now().year - foundation_year
 
 	rendered_page = template.render(
 		year=work_years,
