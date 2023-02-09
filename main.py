@@ -36,7 +36,7 @@ def render_page(products_file, foundation_year):
 	rendered_page = template.render(
 		year=work_years,
 		year_text=convert_year_text(work_years),
-		products_data=get_products(products_file),
+		products=get_products(products_file),
 	)
 
 	with open('index.html', 'w', encoding="utf8") as file:
