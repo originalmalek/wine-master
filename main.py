@@ -45,13 +45,13 @@ def render_page(products_file, foundation_year):
 
 if __name__ == '__main__':
 	load_dotenv()
-	products_file = os.getenv('PRODUCTS_FILE')
+	products_filepath = os.getenv('PRODUCTS_FILEPATH')
 	foundation_year = int(os.getenv('FOUNDATION_YEAR'))
 	env = Environment(
 		loader=FileSystemLoader('.'),
 		autoescape=select_autoescape(['html', 'xml'])
 	)
 
-	render_page(products_file, foundation_year)
+	render_page(products_filepath, foundation_year)
 	server = HTTPServer(('0.0.0.0', 8000), SimpleHTTPRequestHandler)
 	server.serve_forever()
